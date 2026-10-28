@@ -1,0 +1,18 @@
+# Fichiers de log et journaux Vivado
+*.jou
+*.log
+*.str
+*.dmp
+*.pb
+
+# Dossiers de compilation, de cache et de simulation
+.Xil/
+*.cache/
+*.hw/
+*.ip_user_files/
+*.runs/
+*.sim/
+
+# Fichiers de sauvegarde automatique
+*.backup.log
+*.backup.jou
