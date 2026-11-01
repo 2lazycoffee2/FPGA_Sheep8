@@ -32,16 +32,27 @@ use IEEE.STD_LOGIC_1164.ALL;
 --use UNISIM.VComponents.all;
 
 entity Additionneur4bits_tb is
-  Port ( cin : in STD_LOGIC;
+ --port
+end Additionneur4bits_tb;
+
+architecture Behavioral of Additionneur4bits_tb is
+    component Additionneur4bits is
+    Port ( cin : in STD_LOGIC;
            a : in STD_LOGIC_VECTOR (3 downto 0);
            b : in STD_LOGIC_VECTOR (3 downto 0);
            cout : out STD_LOGIC;
            s : out STD_LOGIC_VECTOR (3 downto 0));
-end Additionneur4bits_tb;
-
-architecture Behavioral of Additionneur4bits_tb is
-
+     end component;
+     signal cin, cout : STD_LOGIC;
+     signal a,b,s : STD_LOGIC_VECTOR (3 downto 0);
 begin
-
+    uut: Additionneur4bits port map( cin=> cin, cout=>cout, a=>a, b=>b, s=>s);
+    process
+        begin
+            cin <= '0'; a <= "1100"; b <= "0101";
+            wait for 100ns;
+            cin <= '1'; a <= "0001"; b <= "0100";
+            wait for 100ns;
+    end process;
 
 end Behavioral;
